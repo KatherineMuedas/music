@@ -12,5 +12,5 @@
     %header
       = render 'layouts/navigation'
     %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+      .container{style: "padding-top: 20px;"}
+        = yield
