@@ -1,0 +1,21 @@
+.row
+  - @artists.response.artists.items.each do |artist|
+    .col.s12.m4
+      .card
+        .card-image{style: "height: 350px; overflow: hidden;"}
+          = image_tag(artist.images.first.try(:url), style: "" )
+          %span.card-title{style: 'text-shadow: 2px 2px #e91e63;'}
+            = artist.name
+        .card-content{style: "height: 100px;"}
+          - artist.genres.each do |genre|
+            .chip 
+              = genre
+          .right
+            .chip.green.lighten-3
+              +
+              = artist.popularity 
+
+        .card-action
+          %a{:href => "#"} This is a link
+
+    
