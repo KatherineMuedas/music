@@ -1,6 +1,10 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = SpotifyRuby::Artist.search("Lady")
+    if params[:search].present?
+      @artists = SpotifyRuby::Artist.search(params[:search])
+    else
+      @artists = SpotifyRuby::Artist.search("the")
+    end
   end
 
   def show

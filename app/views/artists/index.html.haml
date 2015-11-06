@@ -1,4 +1,14 @@
 .row
+  = form_tag artists_path, :method => 'get', class: 'col s12' do
+    .row
+      .input-field.col.s12
+        %i.material-icons.prefix search
+        %input#icon_prefix.validate{:type => "text", name: :search}
+        %label{:for => "icon_prefix"} Artist Name
+      / = submit_tag "Search"
+      / # = text_field_tag :search, params[:search], id: "icon_prefix"  do
+        
+.row
   - @artists.response.artists.items.each do |artist|
     .col.s12.m4
       .card
