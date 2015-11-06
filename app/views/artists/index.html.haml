@@ -16,6 +16,6 @@
               = artist.popularity 
 
         .card-action
-          %a{:href => "#"} This is a link
+          = link_to "View artist", artist_path(artist.id)
 
     

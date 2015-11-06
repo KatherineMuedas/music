@@ -1,0 +1,11 @@
+%h1
+  = @artist.response.name
+%h3 Top Songs
+- @top_tracks.response.tracks.each_with_index do |track, index|
+  %h5= "#{index + 1}. #{track.name}"  
+  %p
+    %audio{:controls => ""}
+      %source{:src => "#{track.preview_url}", :type => "audio/ogg"}
+      %source{:src => "#{track.preview_url}", :type => "audio/mpeg"}
+      %source{:src => "#{track.preview_url}", :type => "audio/wav"}
+      Your browser does not support the audio element.
